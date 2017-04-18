@@ -1,0 +1,18 @@
+dbUrl: &pg 'postgresql://caitlinjobs:caitlinjobs@ec2-54-152-41-113.compute-1.amazonaws.com/caitlinjobs'
+
+senatedotgov:
+  rootUrl: 'https://www.senate.gov/employment/po/positions.htm'
+  dbUrl: *pg
+  verbose: False
+
+rollcall:
+  searchUrl: 'http://www.rcjobs.com/jobseeker/search/results/?keywords=&t731=&t732=&t735=124&t735=138&t735=176&max=100&site_id=11641&search='
+  dbUrl: *pg
+  verbose: False
+  baseUrl: 'http://www.rcjobs.com/'
+
+thehill:
+  searchUrl: 'http://thehill.com/resources/classifieds/employer'
+  dbUrl: *pg
+  verbose: False
+  baseUrl: 'http://thehill.com/'

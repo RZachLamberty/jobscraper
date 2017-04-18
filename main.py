@@ -61,6 +61,7 @@ def scrape(fconf):
 
     caitlinjobs.scrape.rollcall.main(**conf['rollcall'])
     caitlinjobs.scrape.senatedotgov.main(**conf['senatedotgov'])
+    caitlinjobs.scrape.thehill.main(**conf['thehill'])
 
 
 # ----------------------------- #
