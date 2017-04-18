@@ -30,7 +30,7 @@ import caitlinjobs.scrape.senatedotgov
 
 HERE = os.path.dirname(os.path.realpath(__file__))
 logger = logging.getLogger('caitlinjobs')
-LOGCONF = os.path.join(HERE, 'logging.yaml')
+LOGCONF = os.path.join(HERE, 'caitlinjobs', 'logging.yaml')
 with open(LOGCONF, 'rb') as f:
     logging.config.dictConfig(yaml.load(f))
 logging.getLogger('requests').setLevel(logging.INFO)

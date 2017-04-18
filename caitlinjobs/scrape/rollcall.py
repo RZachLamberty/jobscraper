@@ -126,6 +126,6 @@ if __name__ == '__main__':
     args = parse_args()
 
     with open(args.config, 'r') as f:
-        conf = yaml.load(f)['senatedotgov']
+        conf = yaml.load(f)['rollcall']
 
     main(**conf)
