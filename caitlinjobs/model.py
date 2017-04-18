@@ -58,6 +58,10 @@ class JobPosting(Base):
 #   init that ish               #
 # ----------------------------- #
 
-def bootstrap(dbUrl):
-    engine = sqlalchemy.create_engine(dbUrl, echo=True)
+def bootstrap(dbUrl, echo=False):
+    engine = sqlalchemy.create_engine(dbUrl, echo=echo)
     Base.metadata.create_all(engine)
+
+def drop_em(dbUrl, echo=False):
+    engine = sqlalchemy.create_engine(dbUrl, echo=echo)
+    JobPosting.__table__.drop(engine)
