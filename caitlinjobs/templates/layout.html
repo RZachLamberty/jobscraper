@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+
+        <!-- css and styling -->
+        <!------ bootstrap -->
+        <link rel="stylesheet"
+              type="text/css"
+              href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!------ data tables css and js -->
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+        <!------ data table buttons (for csv et al. export) -->
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.bootstrap.min.css">
+        <!------ my own stylings for this page -->
+        <link rel="stylesheet"
+              type="text/css"
+              href="{{ url_for('static', filename='css/style.css') }}">
+
+        <!-- jquery -->
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+        <!-- bootstrap javascript required for the tab toggling -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+
+        <!-- data tables css and js -->
+        <script type="text/javascript"
+                charset="utf8"
+                src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript"
+                charset="utf8"
+                src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+        <!-- data table buttons (for csv et al. export) -->
+        <script type="text/javascript"
+                charset="utf8"
+                src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+
+        <script type="text/javascript"
+                charset="utf8"
+                src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.bootstrap.min.js"></script>
+
+        <script type="text/javascript"
+                charset="utf8"
+                src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+
+        <script type="text/javascript"
+                charset="utf8"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+
+        <script type="text/javascript"
+                charset="utf8"
+                src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+
+        <script type="text/javascript"
+                charset="utf8"
+                src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+
+        <script type="text/javascript"
+                charset="utf8"
+                src="//cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+
+        <script type="text/javascript"
+                charset="utf8"
+                src="//cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand active" href="{{ url_for('.index') }}">Caitlin's Jobs</a>
+                </div>
+            </div>
+        </nav>
+        {% block content %}{% endblock %}
+    </body>
+</html>

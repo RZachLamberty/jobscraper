@@ -48,15 +48,23 @@ class JobScraper(object):
 class JobScraperPsql(JobScraper):
     """extend api to auto-publish to psql"""
     def __init__(self, url, verbose=False):
-        self.engine = create_engine(url, echo=True if verbose else False)
-        Session = sessionmaker(bind=self.engine)
-        self.session = Session()
+        self.url = url
+        self.verbose = verbose
+        self.stagedJobs = []
 
     def get(self):
         raise NotImplementedError()
 
     def stage_job(self, **kwargs):
-        self.session.add(JobPosting(**kwargs))
+        self.stagedJobs.append(JobPosting(**kwargs))
 
     def publish(self):
-        self.session.commit()
+        # make connection and build session
+        engine = create_engine(self.url, echo=True if self.verbose else False)
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        for jp in self.stagedJobs:
+            session.add(jp)
+        session.commit()
+        session.close()
+        self.stagedJobs = []

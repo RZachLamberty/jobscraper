@@ -1,0 +1,22 @@
+body {
+    padding-top: 50px;
+}
+
+/* jumbotron */
+a.navbar-brand, a.navbar-brand.active {
+    color: rgb(4, 22, 172);
+}
+
+.jumbotron {
+    background-color: rgba(4, 22, 172, 0.6);
+}
+
+.centericon {
+    display: block;
+    text-align: center;
+}
+
+.cursoricon {
+    cursor: pointer;
+    cursor: hand;
+}

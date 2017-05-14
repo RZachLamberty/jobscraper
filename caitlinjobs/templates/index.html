@@ -1,0 +1,23 @@
+{# _myapp/templates/index.html_ #}
+
+{% extends "layout.html" %}
+{% block title %}Caitlin's Jobs{% endblock %}
+{% block content %}
+{{ super() }}
+<div class="jumbotron">
+    <div class="container">
+        <h1>Caitlin's Jobs</h1>
+    </div>
+</div>
+<div class="container">
+    <table id="jobposting_table"
+           class="table table-striped table-bordered"
+           cellspacing="0"
+           width="100%"></table>
+    <script type="text/javascript"
+            src="{{ url_for('static', filename='js/jobposting.js') }}"></script>
+    <script type="text/javascript">
+     draw_jobposting_table("#jobposting_table", {{ jobpostings | safe }});
+    </script>
+</div>
+{% endblock %}

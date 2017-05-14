@@ -20,8 +20,10 @@ import logging.config
 import os
 import yaml
 
+import caitlinjobs.scrape.idealist
 import caitlinjobs.scrape.rollcall
 import caitlinjobs.scrape.senatedotgov
+import caitlinjobs.scrape.thehill
 
 
 # ----------------------------- #
@@ -59,6 +61,7 @@ def scrape(fconf):
     with open(fconf, 'r') as f:
         conf = yaml.load(f)
 
+    caitlinjobs.scrape.idealist.main(**conf['idealist'])
     caitlinjobs.scrape.rollcall.main(**conf['rollcall'])
     caitlinjobs.scrape.senatedotgov.main(**conf['senatedotgov'])
     caitlinjobs.scrape.thehill.main(**conf['thehill'])
@@ -71,17 +74,13 @@ def scrape(fconf):
 def parse_args():
     """ Take a log file from the commmand line """
     parser = argparse.ArgumentParser()
-    parser.add_argument("-x", "--xample", help="An Example", action='store_true')
-
+    parser.add_argument(
+        "-c", "--conf", help="yaml configuration file", default='conf.yaml'
+    )
     args = parser.parse_args()
-
-    logger.debug("arguments set to {}".format(vars(args)))
-
     return args
 
 
 if __name__ == '__main__':
-
     args = parse_args()
-
-    main()
+    scrape(args.conf)
