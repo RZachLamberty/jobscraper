@@ -16,3 +16,9 @@ thehill:
   dbUrl: *pg
   verbose: False
   baseUrl: 'http://thehill.com/'
+
+idealist:
+  searchUrl: 'https://nsv3auess7-dsn.algolia.net/1/indexes/idealist7-production/query'
+  dbUrl: *pg
+  verbose: False
+  baseUrl: 'http://www.idealist.org/en/'
